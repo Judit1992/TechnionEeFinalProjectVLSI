@@ -1,0 +1,24 @@
+// ============================
+// FIXED POINT MODULES
+// ============================
+
+1 . gen_fip_sign_add 		[out= in1+in2			]
+2 . gen_fip_sign_mult		[out= in1*in2			]
+3 . gen_fip_sign_dist		[out= |in1-in2|			]
+4 . gen_fip_sign_comperator   	[out= in1>in2			]
+5 . gen_fip_sign_inner_prod	[out= in1_vec*in2_vec		]
+
+// ============================
+// DATA COLLECTION MODULES
+// ============================
+
+6 . gen_queue (pop,push)
+7 . gen_buff  (rd_req, rd_idx. wr is always ok and if full shifts out the oldests elem)
+8 . custom_mem_wrapper
+
+// ============================
+// MISC
+// ============================
+
+9 . gen_sorter
+10. gen_pseudo_modulus

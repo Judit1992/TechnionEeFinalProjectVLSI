@@ -1,0 +1,39 @@
+/**
+ *
+ * ####################################################
+ * GA ACCELERATOR PARAMS 
+ * ####################################################
+ * 
+ */
+
+parameter DATA_INT_W 		= 1, 
+parameter DATA_FRACT_W 		= 5, 
+parameter DATA_W 		= DATA_INT_W+DATA_FRACT_W, //w_i width (one weight width). Fixed-point: 1sign,5fract. //For default valuse: 1+5=6
+
+//------------------------------------
+// Genetic algorithm parameters 
+//------------------------------------
+parameter P_MAX  		= 1024	, //Number of indivdulas in generation //Max value is 2^20
+parameter M_MAX  		= 32	, //Number of weights in the filter (in an indivdul)
+parameter B_MAX 		= 64	, //Number of samples for fitness calculation
+parameter G_MAX 		= 1024	, //Number of generations
+	
+parameter P_MAX_W 		= $clog2(P_MAX+1), //For default valuse: 11
+parameter M_MAX_W 		= $clog2(M_MAX+1), //For default valuse: 6
+parameter B_MAX_W 		= $clog2(B_MAX+1), //For default valuse: 7
+parameter G_MAX_W 		= $clog2(G_MAX+1), //For default valuse: 11
+
+parameter P_IDX_MAX_W 	= $clog2(P_MAX), //For default valuse: 10
+parameter M_IDX_MAX_W 	= $clog2(M_MAX), //For default valuse: 5
+parameter B_IDX_MAX_W 	= $clog2(B_MAX), //For default valuse: 6
+parameter G_IDX_MAX_W 	= $clog2(G_MAX), //For default valuse: 10
+
+parameter CHROM_MAX_W 		= DATA_W*M_MAX, //For default values: 6*32=192
+parameter FIT_SCORE_INT_W 	= $clog2(2*B_MAX+1)			, //fit score is unsign fixed-point. 10bit fract + 8bits int //For default values: 18 
+parameter FIT_SCORE_FRACT_W 	= 2*DATA_FRACT_W			, //fit score is unsign fixed-point. 10bit fract + 8bits int //For default values: 18 
+parameter FIT_SCORE_W 		= FIT_SCORE_INT_W+FIT_SCORE_FRACT_W	, //fit score is unsign fixed-point. 10bit fract + 8bits int //For default values: 18 
+
+//------------------------------------
+// SIM parameters 
+//------------------------------------
+parameter SIM_DLY = 1
